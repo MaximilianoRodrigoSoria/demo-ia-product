@@ -55,18 +55,18 @@ public class HealthController {
     public ResponseEntity<HealthResponse> checkHealth() {
         log.info("Verificando estado de salud de la aplicación: {}", applicationName);
 
-        // Crear HealthInfo usando Lombok Builder
-        HealthInfo healthInfo = HealthInfo.builder()
-                .applicationStatus("UP")
-                .statusMessage("Aplicación funcionando correctamente")
-                .applicationVersion("1.0.0")
-                .checkTime(LocalDateTime.now())
-                .build();
+        // Crear HealthInfo usando record
+        var healthInfo = new HealthInfo(
+                "UP",
+                "Aplicación funcionando correctamente",
+                "1.0.0",
+                LocalDateTime.now()
+        );
 
         // Usar MapStruct para convertir a HealthResponse
-        HealthResponse response = healthMapper.toHealthResponse(healthInfo);
+        var response = healthMapper.toHealthResponse(healthInfo);
 
-        log.info("Health check completado: {}", response.getStatus());
+        log.info("Health check completado: {}", response.status());
 
         return ResponseEntity.ok(response);
     }

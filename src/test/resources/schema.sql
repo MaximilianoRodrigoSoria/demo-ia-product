@@ -12,7 +12,3 @@ CREATE TABLE IF NOT EXISTS product (
     updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
     version BIGINT NOT NULL DEFAULT 0
 );
-
--- Datos semilla para tests
-INSERT INTO product (sku, name, description, price, currency, stock, active)
-VALUES ('SKU-001', 'Producto de ejemplo', 'Descripción inicial de producto', 199.90, 'ARS', 100, TRUE);

@@ -4,7 +4,7 @@ services:
     image: postgres:15.2
     restart: always
     ports:
-      - "5433:5432"
+      - "5432:5432"
     volumes:
       - db:/var/lib/postgresql/data
       - ./src/main/resources/sql/product-api-db.sql:/docker-entrypoint-initdb.d/01-product-api-db.sql

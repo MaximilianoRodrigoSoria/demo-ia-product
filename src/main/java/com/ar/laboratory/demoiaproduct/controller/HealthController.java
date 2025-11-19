@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
  */
 @Slf4j
 @RestController
-@RequestMapping("/api/health")
+@RequestMapping("/api/v1/health")
 @RequiredArgsConstructor
 @Tag(name = "Health", description = "Endpoints para verificar el estado de la aplicación")
 public class HealthController {

@@ -70,21 +70,4 @@ public class HealthController {
 
         return ResponseEntity.ok(response);
     }
-
-    @Operation(
-            summary = "Información simple de estado",
-            description = "Endpoint simplificado que retorna solo el estado"
-    )
-    @ApiResponses(value = {
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "Estado de la aplicación",
-                    content = @Content(mediaType = "text/plain")
-            )
-    })
-    @GetMapping("/status")
-    public ResponseEntity<String> getStatus() {
-        log.debug("Consultando estado simple de la aplicación");
-        return ResponseEntity.ok("UP");
-    }
 }
